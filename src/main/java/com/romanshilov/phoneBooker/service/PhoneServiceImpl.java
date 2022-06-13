@@ -93,6 +93,7 @@ public class PhoneServiceImpl implements PhoneService {
     }
 
     @Override
+    @Transactional
     public void returnPhone(BookingRequest request) {
         Optional<List<PhoneEntity>> phoneEntityListOptional = phoneRepository.findPhoneEntitiesByPhoneNameAndIsBookedAndUserName(
                 request.getPhoneName(), true, request.getUserName());
